@@ -20,7 +20,7 @@ import {
 const navItems = [
   { name: "Home", link: "/#home" },
   { name: "About Us", link: "/about" },
-  { name: "Services", link: "/#services" },
+  { name: "Services", link: "/services" },
   { name: "Therapists", link: "/#therapists" },
   { name: "Testimonials", link: "/#testimonials" },
   { name: "Contact Us", link: "/#contact" },

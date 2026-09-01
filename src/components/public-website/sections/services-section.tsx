@@ -2,46 +2,9 @@ import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ArrowRight01Icon,
-  BackMuscleBodyIcon,
-  Flower01Icon,
-  MedicineBottle01Icon,
-  TreatmentIcon,
 } from "@hugeicons/core-free-icons";
 
-const services = [
-  {
-    icon: BackMuscleBodyIcon,
-    title: "Full-Body Relaxation Massage",
-    image: "https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg",
-    imageAlt: "Full-body relaxation massage setup",
-    description:
-      "A healing full-body massage that eases tension and helps your body feel refreshed.",
-  },
-  {
-    icon: TreatmentIcon,
-    title: "Revitalizing Facial Glow Treatment",
-    image: "https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg",
-    imageAlt: "Revitalizing facial glow treatment",
-    description:
-      "A gentle facial treatment that cleanses, hydrates, and restores your natural glow.",
-  },
-  {
-    icon: MedicineBottle01Icon,
-    title: "Aromatic Relaxation Therapy",
-    image: "https://images.pexels.com/photos/6621339/pexels-photo-6621339.jpeg",
-    imageAlt: "Aromatic relaxation oils and therapy",
-    description:
-      "A calming session using aromatic oils to relax your mind and soothe your body.",
-  },
-  {
-    icon: Flower01Icon,
-    title: "Herbal Exfoliation & Body Wrap",
-    image: "https://images.pexels.com/photos/5480192/pexels-photo-5480192.jpeg",
-    imageAlt: "Herbal exfoliation and body wrap spa treatment",
-    description:
-      "A soft herbal scrub and wrap that smooths, nourishes, and refreshes your skin.",
-  },
-];
+import { services } from "@/lib/public-services";
 
 const ServicesSection = () => {
   return (
@@ -84,8 +47,8 @@ const ServicesSection = () => {
 
               {/* Arrow */}
               <a
-                href="/booking"
-                aria-label={`Book ${service.title}`}
+                href={`/service/${service.id}`}
+                aria-label={`View ${service.title}`}
                 className="
                   absolute
                   right-0
@@ -169,7 +132,7 @@ const ServicesSection = () => {
                       text-foreground/90
                     "
                   >
-                    {service.description}
+                    {service.shortDescription}
                   </p>
                 </div>
               </div>
