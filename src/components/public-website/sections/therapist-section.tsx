@@ -7,39 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-const therapists = [
-  {
-    name: "Clara Jensen",
-    role: "Wellness Coordinator",
-    image: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg",
-    imageAlt: "Clara Jensen wellness coordinator",
-  },
-  {
-    name: "Maya Thompson",
-    role: "Lead Wellness Therapist",
-    image: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg",
-    imageAlt: "Maya Thompson lead wellness therapist",
-  },
-  {
-    name: "Hana Kim",
-    role: "Healing Therapist",
-    image: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg",
-    imageAlt: "Hana Kim healing therapist",
-  },
-  {
-    name: "Elena Cruz",
-    role: "Body Treatment Specialist",
-    image: "https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg",
-    imageAlt: "Elena Cruz body treatment specialist",
-  },
-  {
-    name: "Nadia Park",
-    role: "Facial Care Therapist",
-    image: "https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg",
-    imageAlt: "Nadia Park facial care therapist",
-  },
-];
+import { therapists } from "@/lib/public-therapists";
 
 const TherapistSection = () => {
   return (
