@@ -1,10 +1,13 @@
+"use client";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight01Icon, Leaf01Icon } from "@hugeicons/core-free-icons";
 
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const AboutSection = () => {
+  const router = useRouter();
   return (
     <section id="about" className="px-4 pb-14 pt-3 sm:px-6 lg:px-8">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:items-center">
@@ -35,7 +38,7 @@ const AboutSection = () => {
             clarity.
           </p>
 
-          <Button className="mt-8 h-11 rounded-full pl-5 pr-2 sm:mt-10">
+          <Button onClick={() => router.push("/about")} className="mt-8 h-11 rounded-full pl-5 pr-2 sm:mt-10">
             About More
             <span
               data-icon="inline-end"
