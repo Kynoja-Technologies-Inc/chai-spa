@@ -17,20 +17,31 @@ import {
 const footerLinks = [
   {
     title: "Quick Links",
-    links: ["Home", "About Us", "Gallery", "Testimonials", "Blog"],
+    links: [
+      { label: "Home", href: "/" },
+      { label: "About Us", href: "/about" },
+      { label: "Gallery", href: "/gallery" },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "Blog", href: "/blog" },
+    ],
   },
   {
     title: "Services",
     links: [
-      "Healing Therapy",
-      "Rejuvenating Facial Therapy",
-      "Signature Full-Body",
-      "Herbal Body Scrub & Wrap",
+      { label: "Healing Therapy", href: "/service/aromatic-relaxation-therapy" },
+      { label: "Rejuvenating Facial Therapy", href: "/service/revitalizing-facial-glow-treatment" },
+      { label: "Signature Full-Body", href: "/service/full-body-relaxation-massage" },
+      { label: "Herbal Body Scrub & Wrap", href: "/service/herbal-exfoliation-body-wrap" },
     ],
   },
   {
     title: "Support",
-    links: ["Help", "Privacy policy", "Terms & Conditions", "Support"],
+    links: [
+      { label: "Help", href: "/help" },
+      { label: "Privacy policy", href: "/privacy-policy" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" },
+      { label: "Support", href: "/support" },
+    ],
   },
 ];
 
@@ -65,18 +76,18 @@ const Footer = () => {
 
             <div className="mt-6 flex gap-3">
               {socialLinks.map((social) => (
-                <a
+                <span
                   key={social.label}
-                  href="#"
-                  aria-label={social.label}
-                  className="grid size-8 place-items-center rounded-full border border-white/15 text-primary-foreground/70 transition hover:bg-white/10 hover:text-primary-foreground"
+                  aria-label={`${social.label} profile coming soon`}
+                  title={`${social.label} profile coming soon`}
+                  className="grid size-8 place-items-center rounded-full border border-white/15 text-primary-foreground/45"
                 >
                   <HugeiconsIcon
                     icon={social.icon}
                     strokeWidth={1.8}
                     className="size-4"
                   />
-                </a>
+                </span>
               ))}
             </div>
           </div>
@@ -88,12 +99,12 @@ const Footer = () => {
               </h3>
               <ul className="mt-5 space-y-3">
                 {group.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-sm tracking-normal text-primary-foreground/65 transition hover:text-primary-foreground"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}

@@ -1,0 +1,313 @@
+import type { Icon } from "@tabler/icons-react";
+import {
+  IconBell,
+  IconCalendarEvent,
+  IconChartBar,
+  IconCreditCard,
+  IconCrown,
+  IconDoor,
+  IconFileText,
+  IconGift,
+  IconLayoutDashboard,
+  IconMessage,
+  IconPackage,
+  IconStar,
+  IconTicket,
+  IconUsers,
+} from "@tabler/icons-react";
+
+export type AdminModule = {
+  slug: string;
+  label: string;
+  description: string;
+  icon: Icon;
+  action: string;
+  stats: { label: string; value: string; detail: string }[];
+  columns: string[];
+  rows: string[][];
+};
+
+export const adminModules: AdminModule[] = [
+  {
+    slug: "dashboard",
+    label: "Overview",
+    description: "A live snapshot of today’s spa operations.",
+    icon: IconLayoutDashboard,
+    action: "New booking",
+    stats: [
+      { label: "Today’s bookings", value: "24", detail: "+8% from last Sunday" },
+      { label: "Revenue", value: "₱68,450", detail: "₱12,000 pending" },
+      { label: "Active therapists", value: "8 / 10", detail: "2 on scheduled leave" },
+      { label: "Room utilization", value: "76%", detail: "4 rooms available now" },
+    ],
+    columns: ["Time", "Guest", "Service", "Therapist", "Room", "Status"],
+    rows: [
+      ["9:00 AM", "Mika Santos", "Signature Calm", "Maya T.", "Sage 02", "Checked in"],
+      ["10:30 AM", "Anna Reyes", "Facial Glow", "Hana K.", "Glow 01", "Confirmed"],
+      ["12:00 PM", "Luis Cruz", "Deep Release", "Clara J.", "Sage 01", "Awaiting"],
+      ["2:30 PM", "Bea Lim", "Body Renew", "Maya T.", "Retreat 03", "Confirmed"],
+    ],
+  },
+  {
+    slug: "appointments",
+    label: "Booking calendar",
+    description: "Coordinate appointments against therapist and room availability.",
+    icon: IconCalendarEvent,
+    action: "Add appointment",
+    stats: [
+      { label: "Today", value: "24", detail: "18 confirmed" },
+      { label: "This week", value: "128", detail: "82% capacity" },
+      { label: "Waitlist", value: "6", detail: "2 can be accommodated" },
+      { label: "Cancellations", value: "3", detail: "2.3% this week" },
+    ],
+    columns: ["Schedule", "Customer", "Treatment", "Resource", "Payment", "Status"],
+    rows: [
+      ["Sep 6 · 9:00 AM", "Mika Santos", "Signature Calm", "Maya · Sage 02", "Paid", "Checked in"],
+      ["Sep 6 · 10:30 AM", "Anna Reyes", "Facial Glow", "Hana · Glow 01", "Deposit", "Confirmed"],
+      ["Sep 6 · 12:00 PM", "Luis Cruz", "Deep Release", "Clara · Sage 01", "Unpaid", "Awaiting"],
+      ["Sep 6 · 2:30 PM", "Bea Lim", "Body Renew", "Maya · Retreat 03", "Paid", "Confirmed"],
+    ],
+  },
+  {
+    slug: "inquiries",
+    label: "Customer inquiries",
+    description: "Track questions from the website through resolution.",
+    icon: IconMessage,
+    action: "New inquiry",
+    stats: [
+      { label: "Open", value: "12", detail: "4 new today" },
+      { label: "In progress", value: "7", detail: "Assigned to staff" },
+      { label: "Avg. response", value: "18m", detail: "Within service target" },
+      { label: "Resolved", value: "46", detail: "This month" },
+    ],
+    columns: ["Customer", "Subject", "Channel", "Received", "Owner", "Status"],
+    rows: [
+      ["Nicole Yu", "Prenatal massage options", "Website", "8 min ago", "Jamie", "New"],
+      ["Carlo Diaz", "Voucher expiry", "Email", "31 min ago", "Mina", "In progress"],
+      ["Aira Gomez", "Group booking", "Website", "1 hr ago", "Jamie", "In progress"],
+      ["Theo Ramos", "Parking availability", "SMS", "Yesterday", "Mina", "Resolved"],
+    ],
+  },
+  {
+    slug: "therapists",
+    label: "Therapists",
+    description: "Manage specialties, shifts, performance, and availability.",
+    icon: IconUsers,
+    action: "Add therapist",
+    stats: [
+      { label: "Active", value: "10", detail: "8 scheduled today" },
+      { label: "Available now", value: "3", detail: "Next 60 minutes" },
+      { label: "Average rating", value: "4.94", detail: "From 842 reviews" },
+      { label: "Utilization", value: "81%", detail: "+4% this month" },
+    ],
+    columns: ["Therapist", "Specialties", "Shift", "Appointments", "Rating", "Status"],
+    rows: [
+      ["Maya Thompson", "Massage · Aromatherapy", "8 AM – 5 PM", "6 today", "4.98", "Available"],
+      ["Clara Jensen", "Deep tissue · Recovery", "10 AM – 7 PM", "5 today", "4.96", "In session"],
+      ["Hana Kim", "Facial · Skin care", "9 AM – 6 PM", "7 today", "4.95", "In session"],
+      ["Lia Flores", "Body scrub · Wrap", "12 PM – 9 PM", "4 today", "4.91", "Starts later"],
+    ],
+  },
+  {
+    slug: "rooms",
+    label: "Rooms & facilities",
+    description: "Keep treatment rooms and shared resources ready for service.",
+    icon: IconDoor,
+    action: "Add resource",
+    stats: [
+      { label: "Treatment rooms", value: "12", detail: "10 service-ready" },
+      { label: "Available", value: "4", detail: "At this moment" },
+      { label: "In use", value: "6", detail: "Through 3:30 PM" },
+      { label: "Needs attention", value: "2", detail: "Cleaning and maintenance" },
+    ],
+    columns: ["Resource", "Type", "Capacity", "Current booking", "Next available", "Status"],
+    rows: [
+      ["Sage 01", "Massage room", "2 guests", "Deep Release", "1:30 PM", "In use"],
+      ["Glow 01", "Facial suite", "1 guest", "Facial Glow", "12:00 PM", "In use"],
+      ["Retreat 03", "Body treatment", "1 guest", "—", "Now", "Available"],
+      ["Steam Lounge", "Shared facility", "6 guests", "—", "3:00 PM", "Cleaning"],
+    ],
+  },
+  {
+    slug: "packages",
+    label: "Packages & bundles",
+    description: "Curate services into compelling wellness experiences.",
+    icon: IconPackage,
+    action: "Create package",
+    stats: [
+      { label: "Active packages", value: "8", detail: "3 featured online" },
+      { label: "Units sold", value: "64", detail: "This month" },
+      { label: "Package revenue", value: "₱241k", detail: "+12% month on month" },
+      { label: "Top package", value: "Calm", detail: "Signature Calm Bundle" },
+    ],
+    columns: ["Package", "Includes", "Duration", "Price", "Sold", "Status"],
+    rows: [
+      ["Signature Calm", "Massage + aroma + tea", "90 min", "₱3,800", "28", "Featured"],
+      ["Facial Glow Ritual", "Cleanse + hydrate + scalp", "75 min", "₱3,200", "21", "Active"],
+      ["Body Renew Escape", "Scrub + wrap + massage", "120 min", "₱5,200", "15", "Active"],
+      ["Couples Retreat", "2 massages + tea service", "120 min", "₱8,900", "9", "Draft"],
+    ],
+  },
+  {
+    slug: "loyalty",
+    label: "Loyalty rewards",
+    description: "Monitor points earning, redemption, and member engagement.",
+    icon: IconGift,
+    action: "Adjust points",
+    stats: [
+      { label: "Active members", value: "1,284", detail: "+42 this month" },
+      { label: "Points issued", value: "86k", detail: "This month" },
+      { label: "Redeemed", value: "31k", detail: "36% redemption rate" },
+      { label: "Reward liability", value: "₱54k", detail: "Current balance" },
+    ],
+    columns: ["Member", "Tier", "Points", "Last activity", "Lifetime visits", "Status"],
+    rows: [
+      ["Mika Santos", "Serenity", "4,820", "Booking · Today", "22", "Active"],
+      ["Anna Reyes", "Harmony", "2,160", "Redeemed · Sep 4", "14", "Active"],
+      ["Bea Lim", "Bloom", "860", "Earned · Aug 30", "6", "Active"],
+      ["Carlo Diaz", "Bloom", "320", "Expired · Aug 20", "3", "At risk"],
+    ],
+  },
+  {
+    slug: "discounts",
+    label: "Discounts & vouchers",
+    description: "Create promo rules and track voucher issuance and redemption.",
+    icon: IconTicket,
+    action: "Create promotion",
+    stats: [
+      { label: "Active promos", value: "6", detail: "2 ending this week" },
+      { label: "Vouchers issued", value: "214", detail: "₱428k face value" },
+      { label: "Redemption rate", value: "38%", detail: "+6% this month" },
+      { label: "Discount value", value: "₱32k", detail: "This month" },
+    ],
+    columns: ["Code / voucher", "Offer", "Eligibility", "Usage", "Validity", "Status"],
+    rows: [
+      ["CHAI10", "10% off", "All customers", "82 / 200", "Sep 1 – 30", "Active"],
+      ["FIRSTCALM", "₱500 off", "First booking", "41 / 100", "Until Oct 15", "Active"],
+      ["WELLNESS-2500", "₱2,500 value", "Gift voucher", "18 / 50", "12 months", "Active"],
+      ["MOTHER25", "25% off", "Selected packages", "120 / 120", "Ended May 31", "Expired"],
+    ],
+  },
+  {
+    slug: "memberships",
+    label: "Memberships",
+    description: "Manage tiers, subscriptions, renewals, and member benefits.",
+    icon: IconCrown,
+    action: "Create membership",
+    stats: [
+      { label: "Subscribers", value: "386", detail: "+18 this month" },
+      { label: "Monthly recurring", value: "₱742k", detail: "+7.2% growth" },
+      { label: "Renewal rate", value: "91%", detail: "Last 30 days" },
+      { label: "Renewals due", value: "24", detail: "Next 7 days" },
+    ],
+    columns: ["Member", "Plan", "Billing", "Next renewal", "Benefits used", "Status"],
+    rows: [
+      ["Mika Santos", "Serenity", "₱2,990 / mo", "Sep 18", "2 / 3", "Active"],
+      ["Anna Reyes", "Harmony", "₱1,790 / mo", "Sep 21", "1 / 2", "Active"],
+      ["Luis Cruz", "Serenity", "₱2,990 / mo", "Sep 11", "3 / 3", "Renewing"],
+      ["Bea Lim", "Bloom", "₱990 / mo", "Sep 8", "1 / 1", "Payment due"],
+    ],
+  },
+  {
+    slug: "payments",
+    label: "Payments",
+    description: "Review booking, membership, package, and voucher transactions.",
+    icon: IconCreditCard,
+    action: "Record payment",
+    stats: [
+      { label: "Collected today", value: "₱68,450", detail: "31 transactions" },
+      { label: "Deposits", value: "₱18,000", detail: "18 reservations" },
+      { label: "Outstanding", value: "₱12,400", detail: "7 balances" },
+      { label: "Refunds", value: "₱3,200", detail: "2 this week" },
+    ],
+    columns: ["Reference", "Customer", "Purpose", "Method", "Amount", "Status"],
+    rows: [
+      ["PAY-260906-031", "Mika Santos", "Booking", "GCash", "₱3,800", "Paid"],
+      ["PAY-260906-030", "Anna Reyes", "Deposit", "Visa • 4821", "₱1,000", "Paid"],
+      ["PAY-260906-029", "Bea Lim", "Membership", "Maya", "₱990", "Pending"],
+      ["REF-260905-006", "Carlo Diaz", "Booking refund", "GCash", "-₱1,600", "Refunded"],
+    ],
+  },
+  {
+    slug: "policies",
+    label: "Policies",
+    description: "Publish and maintain cancellation, refund, and guest policies.",
+    icon: IconFileText,
+    action: "Add policy",
+    stats: [
+      { label: "Published", value: "7", detail: "Customer-visible" },
+      { label: "Drafts", value: "2", detail: "Awaiting approval" },
+      { label: "Acknowledgements", value: "96%", detail: "Of recent bookings" },
+      { label: "Last update", value: "Aug 24", detail: "Cancellation policy" },
+    ],
+    columns: ["Policy", "Audience", "Version", "Last updated", "Owner", "Status"],
+    rows: [
+      ["Cancellation & rescheduling", "All guests", "v2.3", "Aug 24, 2026", "Operations", "Published"],
+      ["Refund policy", "All guests", "v1.8", "Aug 18, 2026", "Finance", "Published"],
+      ["Home service guidelines", "Home visits", "v1.2", "Aug 12, 2026", "Operations", "Published"],
+      ["Guest conduct", "All guests", "v1.1", "Sep 3, 2026", "Management", "Draft"],
+    ],
+  },
+  {
+    slug: "feedback",
+    label: "Feedback & ratings",
+    description: "Understand service quality and close the loop with guests.",
+    icon: IconStar,
+    action: "Request feedback",
+    stats: [
+      { label: "Overall rating", value: "4.92", detail: "1,106 responses" },
+      { label: "New reviews", value: "18", detail: "This week" },
+      { label: "Response rate", value: "68%", detail: "+5% this month" },
+      { label: "Needs follow-up", value: "3", detail: "Rated 3 or below" },
+    ],
+    columns: ["Guest", "Service", "Therapist", "Rating", "Received", "Status"],
+    rows: [
+      ["Mika Santos", "Signature Calm", "Maya T.", "5.0", "Today, 11:24 AM", "Published"],
+      ["Anna Reyes", "Facial Glow", "Hana K.", "4.8", "Yesterday", "Published"],
+      ["Luis Cruz", "Deep Release", "Clara J.", "3.0", "Sep 4", "Follow up"],
+      ["Bea Lim", "Body Renew", "Maya T.", "5.0", "Sep 3", "Published"],
+    ],
+  },
+  {
+    slug: "notifications",
+    label: "Notifications",
+    description: "Manage automated booking, reminder, and promotion messages.",
+    icon: IconBell,
+    action: "Create campaign",
+    stats: [
+      { label: "Sent today", value: "186", detail: "Email and SMS" },
+      { label: "Delivery rate", value: "98.7%", detail: "Last 30 days" },
+      { label: "Scheduled", value: "74", detail: "Next 24 hours" },
+      { label: "Campaign opens", value: "42%", detail: "+3% this month" },
+    ],
+    columns: ["Message", "Channel", "Audience", "Schedule", "Delivery", "Status"],
+    rows: [
+      ["Appointment reminder", "SMS + Email", "Tomorrow’s guests", "Daily · 6 PM", "99.1%", "Active"],
+      ["Booking confirmation", "Email", "New bookings", "Immediate", "99.8%", "Active"],
+      ["September reset", "Email", "Active members", "Sep 8 · 9 AM", "—", "Scheduled"],
+      ["We miss you", "SMS", "Inactive 90 days", "Weekly", "97.2%", "Active"],
+    ],
+  },
+  {
+    slug: "reports",
+    label: "Reports & analytics",
+    description: "Track booking, revenue, and customer trends for better decisions.",
+    icon: IconChartBar,
+    action: "Export report",
+    stats: [
+      { label: "Gross revenue", value: "₱1.86M", detail: "+14.2% this month" },
+      { label: "Bookings", value: "528", detail: "+9.6% this month" },
+      { label: "Avg. order value", value: "₱3,523", detail: "+4.1% this month" },
+      { label: "Returning guests", value: "64%", detail: "+2.8 percentage points" },
+    ],
+    columns: ["Report", "Period", "Primary metric", "Result", "Change", "Updated"],
+    rows: [
+      ["Revenue performance", "Sep 1 – 6", "Gross revenue", "₱412,800", "+14.2%", "Today"],
+      ["Booking trends", "Last 30 days", "Appointments", "528", "+9.6%", "Today"],
+      ["Customer retention", "Q3 2026", "Returning guests", "64%", "+2.8 pts", "Yesterday"],
+      ["Therapist utilization", "Sep 1 – 6", "Booked hours", "81%", "+4.0%", "Today"],
+    ],
+  },
+];
+
+export const adminModuleMap = new Map(adminModules.map((module) => [module.slug, module]));

@@ -4,7 +4,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
+import {
+  ArrowRight01Icon,
+  UserCircleIcon,
+} from "@hugeicons/core-free-icons";
 
 import {
   MobileNav,
@@ -71,14 +74,29 @@ const Header = () => {
           items={navItems}
           className="left-1/2 w-fit -translate-x-1/2 rounded-full bg-background px-2 py-1 text-sm text-foreground whitespace-nowrap group-data-[visible=true]/navbody:max-w-97.5 group-data-[visible=true]/navbody:gap-0 group-data-[visible=true]/navbody:px-1 [&_a]:whitespace-nowrap group-data-[visible=true]/navbody:[&_a]:px-2 group-data-[visible=true]/navbody:[&_a]:py-1.5"
         />
-        <NavbarButton
-          href="/booking"
-          variant="primary"
-          aria-label="Book Appointment"
-          className="rounded-full bg-primary py-1.5 pl-4 pr-1.5 text-xs font-semibold text-primary-foreground hover:bg-primary group-data-[visible=true]/navbody:px-1.5"
-        >
-          <AppointmentLabel />
-        </NavbarButton>
+        <div className="relative z-20 flex items-center gap-1.5">
+          <NavbarButton
+            href="/sign-in"
+            variant="secondary"
+            aria-label="Sign in"
+            className="h-10 rounded-full border border-border bg-background px-4 py-0 text-xs font-semibold text-foreground whitespace-nowrap hover:bg-muted group-data-[visible=true]/navbody:size-9 group-data-[visible=true]/navbody:p-0"
+          >
+            <span className="inline-flex h-full items-center justify-center gap-2 whitespace-nowrap">
+              <HugeiconsIcon icon={UserCircleIcon} className="size-4 shrink-0" />
+              <span className="group-data-[visible=true]/navbody:hidden">
+                Sign in
+              </span>
+            </span>
+          </NavbarButton>
+          <NavbarButton
+            href="/booking"
+            variant="primary"
+            aria-label="Book Appointment"
+            className="rounded-full bg-primary py-1.5 pl-4 pr-1.5 text-xs font-semibold text-primary-foreground hover:bg-primary group-data-[visible=true]/navbody:px-1.5"
+          >
+            <AppointmentLabel />
+          </NavbarButton>
+        </div>
       </NavBody>
 
       <MobileNav className="rounded-full border border-white/40 bg-white pr-5! pl-3! backdrop-blur-md">
@@ -105,6 +123,17 @@ const Header = () => {
               {item.name}
             </a>
           ))}
+          <NavbarButton
+            href="/sign-in"
+            onClick={() => setIsMobileMenuOpen(false)}
+            variant="secondary"
+            className="w-full rounded-full border border-border bg-background py-2 text-foreground"
+          >
+            <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
+              <HugeiconsIcon icon={UserCircleIcon} className="size-4 shrink-0" />
+              Sign in
+            </span>
+          </NavbarButton>
           <NavbarButton
             href="/booking"
             onClick={() => setIsMobileMenuOpen(false)}
